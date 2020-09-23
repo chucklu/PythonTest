@@ -1,8 +1,7 @@
-def is_divide_by(number, a, b):
-  temp = number % a;
-  if (temp != 0):
-    return False;
-  temp = number % b;
-  if (temp != 0):
-    return False;
-  return True;
+def arr(n = 0):
+  array = []
+  if (n == 0):
+    return array
+  for x in range(0, n):
+    array.append(x)
+  return array
