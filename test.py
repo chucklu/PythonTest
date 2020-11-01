@@ -14,6 +14,6 @@ for word in words:
         pattern = pattern + tempDictionary[ch]    
     #print(pattern)
     if pattern in patterns:
-        print(word+'为'+pattern+'型')
+        print(word+'为"'+pattern+'"型')
     else:
-        print(word+'为OTHER型')
+        print(word+'为"OTHER型"')
