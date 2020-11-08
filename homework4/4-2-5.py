@@ -1,35 +1,39 @@
 
-#assume you hava 4 items in list, you will need 3 loop to finish the bubble sort
-#first loop
-#compare index 0 with index 1, and swap the bigger to index 0
-#compare index 0 with index 2, and swap the bigger to index 0
-#compare index 0 with index 3, and swap the bigger to index 0
-#when first loop finishes, the item at index 1 would be the biggest, 
-#then we only need to compare the left 3 items at index 1, index 2 and index 3
-
-#second loop
-#compare index 1 with index 2, and swap the bigger to index 1
-#compare index 1 with index 3, and swap the bigger to index 1
-
-#third loop
-#compare index 2 with index 3, and swap the bigger to index 2
+#assume you hava 5 elements in list [5,1,4,2,8]
+#loop1
+#[5,1,4,2,8]-->[8,1,4,2,5] find biggest is 8, swap 8 and the first element 5
+#loop2, skip first element 8, and find biggest in left 4 elements
+#[8,1,4,2,5]-->[8,5,4,2,1] find biggest is 5, swap 5 and the second element
+#loop3, skip first two elements, and find biggest in left 3 elements
+#[8,5,4,2,1]-->[8,5,4,2,1] find biggest is 4, swap 4 and the third element, they are the same elements, no need to change
 
 def sort_nums(data_list):
+	#print(data_list)
 	count = len(data_list)
-	#print(f"count = {count}")
-	second = 1
-	for i in range(count - 1):
-		#print(f"loop{i + 1}")
-		for j in range(second, count):
-			#print(f"i = {i}, j = {j}")
-			if(data_list[i] < data_list[j]):
-				temp = data_list[i]
-				data_list[i] = data_list[j]
-				data_list[j] = temp
-		second = second + 1
-		#print(data_list)
+	for i in range(count-1):
+		tuple_item = find_max(i,data_list)
+		max_number_index = tuple_item[0]
+		max_number = tuple_item[1]
+		#print(f"loop{i+1}, max_number_index = {max_number_index}, max_number = {max_number}")
+		if(i != max_number_index):
+			temp = data_list[i]
+			data_list[i] = data_list[max_number_index]
+			data_list[max_number_index] = temp
+		#print(f"loop{i+1} {data_list}")
 	return data_list
 
+def find_max(start_index,data_list):
+	#print(f"start_index = {start_index}")
+	count = len(data_list)
+	max_number = data_list[start_index]
+	max_number_index = start_index
+	for i in range(start_index+1,count):
+		#print(f"i = {i}")
+		if(max_number < data_list[i]):
+			max_number = data_list[i]
+			max_number_index = i
+	return (max_number_index,max_number)
 data_list = [9, 23, 10, 217, 11, 23, 55, 79, 196, 224, 56, 135]
+#data_list = [5,1,4,2,8]
 result = sort_nums(data_list)
 print(result)
