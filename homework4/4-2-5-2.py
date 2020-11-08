@@ -20,15 +20,21 @@
 	
 def sort_nums(data_list):
 	count =  len(data_list)
-	for j in range(0,count):
-		for i in range(count-1,j,-1):
+	for j in range(0, count):
+		swapped = False
+		for i in range(count-1, j,-1):
 			#print(f"loop{j+1}, i-1={i-1}, i={i}")
 			if(data_list[i-1]<data_list[i]):
-				data_list[i-1],data_list[i]=data_list[i],data_list[i-1]
+				data_list[i-1], data_list[i] = data_list[i], data_list[i-1]
+				swapped = True
 			#print(data_list)
+		if(swapped == False):
+			break
+		#print(f"loop{j+1}, {data_list}")
 	return data_list
 
 data_list = [9, 23, 10, 217, 11, 23, 55, 79, 196, 224, 56, 135]
 #data_list = [5,1,4,2,8]
+#data_list = [11, 23, 10, 217, 9, 23, 55, 79, 196, 224, 56, 135]
 result = sort_nums(data_list)
 print(result)
