@@ -19,6 +19,13 @@
 #[8,5,4,2,1]-->[8,5,4,2,1] compare element at index3 and element at index4, 2>1(descending order), no need to sap them
 	
 def sort_nums(data_list):
+	count =  len(data_list)
+	for i in range(count-1,0,-1):
+		print(f"i-1={i-1},i={i}")
+		if(data_list[i-1]<data_list[i]):
+			data_list[i-1],data_list[i]=data_list[i],data_list[i-1]
+		print(data_list)
+	return data_list
 
 #data_list = [9, 23, 10, 217, 11, 23, 55, 79, 196, 224, 56, 135]
 data_list = [5,1,4,2,8]
