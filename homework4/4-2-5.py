@@ -1,4 +1,3 @@
-
 #assume you hava 5 elements in list [5,1,4,2,8]
 #loop1
 #[5,1,4,2,8]-->[8,1,4,2,5] find biggest is 8, swap 8 and the first element 5
@@ -16,9 +15,7 @@ def sort_nums(data_list):
 		max_number = tuple_item[1]
 		#print(f"loop{i+1}, max_number_index = {max_number_index}, max_number = {max_number}")
 		if(i != max_number_index):
-			temp = data_list[i]
-			data_list[i] = data_list[max_number_index]
-			data_list[max_number_index] = temp
+			data_list[i],data_list[max_number_index] = data_list[max_number_index],data_list[i]
 		#print(f"loop{i+1} {data_list}")
 	return data_list
 
