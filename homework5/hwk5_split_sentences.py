@@ -2,18 +2,21 @@ def split_cn_sents(txt):
     puncts = set('；。！…？')
     sents = []
     ch_count = len(txt)
-    temp = ""
+    start_index = 0
+    end_index = 0
     for i in range(0,ch_count,1):
     	ch = txt[i]
-    	if(ch in puncts and temp==""):
+    	if(ch in puncts and i==start_index):
     		sents_count = len(sents)
     		index = sents_count-1
     		sents[index] =  f"{sents[index]}{ch}"
     	else:
-    		temp = f"{temp}{ch}"
     		if(ch in puncts):
-    			sents.append(temp)
-    			temp = ""
+    			#print(f"i = {i}, start_index = {start_index}")
+    			end_index = i+1
+    			sent = txt[start_index:end_index]
+    			sents.append(sent)
+    			start_index = i+1
     return sents
 
 def test():
