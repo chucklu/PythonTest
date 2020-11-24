@@ -10,6 +10,7 @@ def split_cn_sents(txt):
     		sents_count = len(sents)
     		index = sents_count-1
     		sents[index] =  f"{sents[index]}{ch}"
+    		start_index += 1
     	else:
     		if(ch in puncts):
     			#print(f"i = {i}, start_index = {start_index}")
