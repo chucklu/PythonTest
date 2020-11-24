@@ -1,11 +1,9 @@
 def split_cn_sents(txt):
     puncts = set('；。！…？')
     sents = []
-    # Add your code below
-    count = len(txt)
+    ch_count = len(txt)
     temp = ""
-    encounter_punct = False
-    for i in range(0,count,1):
+    for i in range(0,ch_count,1):
     	ch = txt[i]
     	temp = f"{temp}{ch}"
     	if(ch in puncts):
