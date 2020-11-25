@@ -5,8 +5,23 @@ import jieba.posseg as pos_tagger
 def split_cn_sents(txt):
     puncts = set('；。！…？?!;')
     sents = []
-    # Add your code below
-
+    ch_count = len(txt)
+    start_index = 0
+    end_index = 0
+    for i in range(0,ch_count,1):
+        ch = txt[i]
+        if(ch in puncts and i==start_index):
+            sents_count = len(sents)
+            index = sents_count-1
+            sents[index] =  f"{sents[index]}{ch}"
+            start_index += 1
+        else:
+            if(ch in puncts):
+                #print(f"i = {i}, start_index = {start_index}")
+                end_index = i+1
+                sent = txt[start_index:end_index]
+                sents.append(sent)
+                start_index = i+1
     return sents
 
 def segment_file_cn(infile, outfile, infile_encoding='utf-8', outfile_encoding='utf-8'):
