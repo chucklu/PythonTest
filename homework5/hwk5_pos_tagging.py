@@ -37,12 +37,14 @@ def segment_file_cn(infile, outfile, infile_encoding='utf-8', outfile_encoding='
     sents = split_cn_sents(txt)
 
     postagged_sents = []
-    # Add your code below
+    for sent in sents:
+        word_pos_list = pos_tagger.cut(sent)
+        for word, flag in word_pos_list:
+            postagged_sents.append(f"{word}/{flag}")
 
     fout = open(outfile, 'w', encoding = outfile_encoding)
     for postagged_sent in postagged_sents:
-        # Add your code below
-        pass
+        fout.write(postagged_sent)
     fout.close()
 
 def test_seg():
@@ -64,6 +66,6 @@ def test():
     outfile = r'./files/corpus_cn_1_postagged.txt'
     segment_file_cn(infile, outfile, 'gbk', 'utf-8')
 
-# test_seg()
-# test_postag()
+#test_seg()
+#test_postag()
 test()
