@@ -56,7 +56,7 @@ def test_postag():
     for sent in sents:
         # word_pos_list = jieba.posseg.cut(sent_2)
         word_pos_list = pos_tagger.cut(sent)
-        print('  '.join([f'{word}/{pos}' for word, pos in word_pos_list]))
+        print('  '.join([f'{word}/{flag}' for word, flag in word_pos_list]))
 
 def test():
     # You can change your code below
