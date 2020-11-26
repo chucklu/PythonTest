@@ -39,12 +39,16 @@ def segment_file_cn(infile, outfile, infile_encoding='utf-8', outfile_encoding='
     postagged_sents = []
     for sent in sents:
         word_pos_list = pos_tagger.cut(sent)
+        temp = []
         for word, flag in word_pos_list:
-            postagged_sents.append(f"{word}/{flag}")
+            temp.append(f"{word}/{flag}")
+        postagged_sents.append(temp)
 
     fout = open(outfile, 'w', encoding = outfile_encoding)
-    for postagged_sent in postagged_sents:
-        fout.write(postagged_sent)
+    for item1 in postagged_sents:
+        for item2 in item1:
+            fout.write(item2)
+        fout.write('\n')
     fout.close()
 
 def test_seg():
