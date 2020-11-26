@@ -8,13 +8,23 @@ def get_webpage(url):
     return x.text
 
 def save_news_titles(titles, outfile, encoding='utf-8'):
-    # Add your code below
-    pass
+    my_fie = open(outfile,'w',-1,encoding)
+    for title in titles:
+        my_fie.write(f"{title}\n")
+    my_fie.close()
 
 def extract_title(content):
     title = ''
-    # Add your code below
-
+    content_length = len(content)
+    #print(f"content_length = {content_length}")
+    start_tag='<title>'
+    start_tag_length = len(start_tag)
+    end_tag='</title>'
+    start_tag_index = content.index(start_tag,0,content_length)
+    end_tag_index = content.index(end_tag,0,content_length)
+    #print(f"start_tag_index = {start_tag_index}, end_tag_index = {end_tag_index}")
+    title = content[start_tag_index+start_tag_length:end_tag_index]
+    #print(title)
     return title
 
 # def extract_article(content):
@@ -33,5 +43,5 @@ def test():
     outfile = './files/webpage_titles.txt'
     save_news_titles(titles, outfile)
 
-# test_webpage_request()
+#test_webpage_request()
 test()
