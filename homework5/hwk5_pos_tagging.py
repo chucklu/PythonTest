@@ -41,7 +41,7 @@ def segment_file_cn(infile, outfile, infile_encoding='utf-8', outfile_encoding='
         word_pos_list = pos_tagger.cut(sent)
         temp = []
         for word, flag in word_pos_list:
-            temp.append(f"{word}/{flag}")
+            temp.append(f"{word}/{flag}  ")
         postagged_sents.append(temp)
 
     fout = open(outfile, 'w', encoding = outfile_encoding)
