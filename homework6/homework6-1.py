@@ -2,6 +2,17 @@
 import jieba
 import jieba.posseg as pos_tagger
 
+def remove_spaces(infile, outfile, infile_encoding='utf-8', outfile_encoding='utf-8'):
+    fin = open(infile, 'r', encoding = infile_encoding)
+    txt = fin.read()
+    fin.close()
+
+    txt = txt.replace(" ","");
+    fout = open(outfile, 'w', encoding = outfile_encoding)
+    fout.write(txt)
+    fout.close()
+
+
 def split_cn_sents(txt):
     puncts = set('；。！…？?!;')
     sents = []
@@ -41,7 +52,7 @@ def segment_file_cn(infile, outfile, infile_encoding='utf-8', outfile_encoding='
         word_pos_list = pos_tagger.cut(sent)
         temp = []
         for word, flag in word_pos_list:
-            temp.append(f"{word}/{flag}  ")
+            temp.append(f"{word}/{flag}")
         postagged_sents.append(temp)
 
     fout = open(outfile, 'w', encoding = outfile_encoding)
@@ -55,7 +66,8 @@ def test():
     # You can change your code below
     infile = r'./files/sample_corpus.txt'
     outfile = r'./files/sample_corpus_with_pos.txt'
-    segment_file_cn(infile, outfile, 'utf-8', 'utf-8')
+    remove_spaces(infile, outfile)
+    #segment_file_cn(infile, outfile, 'utf-8', 'utf-8')
 
 #test_seg()
 #test_postag()
