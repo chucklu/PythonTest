@@ -1,7 +1,7 @@
 import re
-rgx_pat = 'a(b|c)*d'
-txt = 'ad,abd,acd,abbd,abcd,accd,acbccd,aed'
+txt = 'ab,a\nb'
+rgx_pat = r'a.{0,4}b'
 mat = re.search(rgx_pat, txt)
 print(mat)
-if(mat != None):
-	print(mat.group())
+mat_str = mat.group()
+print(mat_str)
