@@ -1,7 +1,5 @@
 import re
-txt = 'ab,a\nb'
-rgx_pat = r'a.{0,4}b'
-mat = re.search(rgx_pat, txt)
-print(mat)
-mat_str = mat.group()
-print(mat_str)
+txt = 'I#have##a###cat.'
+rgx_pat = r'\s*#+\s*'
+words = re.split(rgx_pat, txt)
+print(words)
