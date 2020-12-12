@@ -1,6 +1,8 @@
 import re
-txt = 'I#have##a###cat.'
-rgx_pat = r'#+'
-txt_new, count = re.subn(rgx_pat, '\t', txt)
-print(txt_new)
-print(count)
+rgx_pat = 'a(b|c)*d'
+txt = 'ad,abd,acd,abbd,abcd,accd,acbccd,aed'
+mat = re.findall(rgx_pat, txt)
+print(mat)
+
+for mat in re.finditer(rgx_pat, txt):
+    print(mat)
