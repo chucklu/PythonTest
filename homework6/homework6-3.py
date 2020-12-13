@@ -44,6 +44,14 @@ def extract_post_source(content):
 
 def extract_text(content):
     text = ''
+    rgx_pat = r'.*(?P<text><div class="post_body">.*</div>").*<div class="post_statement">.*'
+    regex = re.compile(rgx_pat,flags = re.MULTILINE|re.DOTALL)
+    mat = regex.match(content)
+    if mat:
+        text = mat.group('text')
+    else:
+        print('match failed')
+    print(text)
     return text
 
 def export(url, outfile):
