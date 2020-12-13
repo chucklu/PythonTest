@@ -1,4 +1,5 @@
 import requests
+import re
 
 def get_webpage(url):
     x = requests.get(url, verify=False)
@@ -14,17 +15,12 @@ def save_news_titles(titles, outfile, encoding='utf-8'):
     my_fie.close()
 
 def extract_title(content):
+    #print(content)
     title = ''
-    content_length = len(content)
-    #print(f"content_length = {content_length}")
-    start_tag='<title>'
-    start_tag_length = len(start_tag)
-    end_tag='</title>'
-    start_tag_index = content.index(start_tag,0,content_length)
-    end_tag_index = content.index(end_tag,0,content_length)
-    #print(f"start_tag_index = {start_tag_index}, end_tag_index = {end_tag_index}")
-    title = content[start_tag_index+start_tag_length:end_tag_index]
-    #print(title)
+    rgx_pat = r'.*<title>(?P<title>.*)</title>.*'
+    regex = re.compile(rgx_pat,flags = re.MULTILINE|re.DOTALL)
+    mat = regex.match(content)
+    title = mat.group('title')
     return title
 
 # def extract_article(content):
