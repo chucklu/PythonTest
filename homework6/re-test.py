@@ -1,13 +1,13 @@
 import re
-txt = '<hello>,hello!'
-rgx_pat = r'(<)?hello(?(1)>|!)'
-for mat in re.finditer(rgx_pat, txt):
-	print(mat.group())
+txt = '''
+This is a broken 
+sentence.
+This is another sentence.
+'''
+rgx_pat = r'(\w+ )\s*(\r)?\n\s*'
+mats = re.finditer(rgx_pat, txt);
+for mat in mats:
+	print(mat)
 
-rgx_pat2 = 'hello(?=!)'
-for mat in re.finditer(rgx_pat2, txt):
-	print(mat.span(), mat.group())
-
-rgx_pat3 = 'hello(?!!)'
-for mat in re.finditer(rgx_pat3, txt):
-	print(mat.span(), mat.group())
+txt = re.sub(rgx_pat, r'\1', txt)
+print(txt)
