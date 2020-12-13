@@ -1,8 +1,6 @@
 import re
-rgx_pat = 'a(b|c)*d'
-rgx = re.compile(rgx_pat, flags=re.IGNORECASE)
-txt = 'ad,abd,acd,abbd,abcd,ACCD,acbccd,aed'
-mat = rgx.fullmatch(txt, pos=3)
-print(mat)
-mat_1 = rgx.fullmatch(txt, pos=3, endpos=6)
-print(mat_1)
+txt = '这句话既有English，又有Chinese。'
+rgx_pat= r'[\u4e00-\u9fa5]' #简体汉字
+rgx = re.compile(rgx_pat)
+for mat in rgx.finditer(txt):
+	print(mat.group(0))
