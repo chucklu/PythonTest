@@ -1,4 +1,5 @@
 import re
+#可能/AD 会/VV 把/BA 我们/PN 给/VV 卖了/NN
 def count_gei_V(verb_dict, mat):
 	if(mat==None):
 		return
@@ -9,7 +10,7 @@ def count_gei_V(verb_dict, mat):
 	verb_dict[verb] += 1
 
 def extract_gei_V(infile):
-	rgx_pat = r'\s+给/[A-Z]+\s+(?P<verb>[\u4e00-\u9fa5]+/V[A-Z]*)\s+'
+	rgx_pat = r'\s+把/[A-Z]+(?P<noun>[\u4e00-\u9fa5]+/[A-Z]*N[A-Z]*)\s+给/[A-Z]+\s+(?P<verb>[\u4e00-\u9fa5]+/V[A-Z]*)\s+'
 	rgx = re.compile(rgx_pat)
 	fin =  open(infile, 'r', encoding='utf-8')
 	verb_dict = {}
