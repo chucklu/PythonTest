@@ -32,14 +32,14 @@ def extract_post_time(content):
     return time
 
 def extract_post_source(content):
-    print('start extract_post_source')
+    #print('start extract_post_source')
     source = '' 
-    rgx_pat = r'.*\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\s+(?P<source>来源.* .*">举报</a>)'
-    regex = re.compile(rgx_pat,flags = re.MULTILINE|re.DOTALL)
-    mat = regex.match(content)
-    source = mat.group('source')
-    print(source)
-    print('end extract_post_source')
+    # rgx_pat = r'.*(?P<source>来源.*\s+.*)post_jubao.*>举报</a>.*'
+    # regex = re.compile(rgx_pat,flags = re.MULTILINE|re.DOTALL)
+    # mat = regex.match(content)
+    # source = mat.group('source')
+    #print(source)
+    #print('end extract_post_source')
     return source
 
 def extract_text(content):
