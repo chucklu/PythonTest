@@ -15,6 +15,7 @@ def extract_gei_V(infile):
 	fin =  open(infile, 'r', encoding='utf-8')
 	verb_dict = {}
 	for line in fin:
+		line = line.replace('\n','')
 		for mat in rgx.finditer(line):
 			count_gei_V(verb_dict, mat)
 	fin.close()
