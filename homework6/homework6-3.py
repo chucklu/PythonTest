@@ -18,8 +18,17 @@ def extract_title(content):
     title = mat.group('title')
     return title
 
+# <div class="post_time_source">
+#                 2020-11-16 09:38:24 来源: <a id="ne_article_source" href="http://www.xinhuanet.com/politics/2020-11/15/c_1126743154.htm" target="_blank">新华网</a>
+                
+#                 <a href="http://jubao.aq.163.com/" target="_blank" class="post_jubao" title="举报本文">举报</a>
+#             </div>
 def extract_post_time(content):
     time = ''
+    rgx_pat = r'.*(?P<time>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\s+)来源.*<'
+    regex = re.compile(rgx_pat,flags = re.MULTILINE|re.DOTALL)
+    mat = regex.match(content)
+    time = mat.group('time')
     return time
 
 def extract_post_source(content):
@@ -38,10 +47,10 @@ def export(url, outfile):
     source = extract_post_source(content)
     text = extract_text(content)
     fout = open(outfile,'w',encoding='utf-8')
-    fout.write(title)
-    fout.write(time)
-    fout.write(source)
-    fout.write(text)
+    fout.write(f'{title}\n')
+    fout.write(f'{time}\n')
+    fout.write(f'{source}\n')
+    fout.write(f'{text}\n')
     fout.close()
     #print('end export')
 
@@ -54,6 +63,5 @@ def test():
         i += 1
         outfile = f'./files/export_web_{i}.txt'
         export(url, outfile)
-    titles = [extract_title(get_webpage(url)) for url in urls]
 
 test()
