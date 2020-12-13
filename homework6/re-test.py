@@ -1,6 +1,24 @@
 import re
-txt = '把/BA 我/PN 的/DEG 这些/DT 小/JJ 警察/NN 给/VV 吓走/VV 了/AS'
-rgx_pat= r'\s+给/[A-Z]+\s+(?P<vb>[\u4e00-\u9fa5]+/V[A-Z]*)\s+'
-rgx = re.compile(rgx_pat)
-for mat in rgx.finditer(txt):
-	print(mat.group(0))
+def count_gei_V(verb_dict, mat):
+	if(mat==None):
+		return
+	verb = mat.group('verb')
+	if verb not in verb_dict:
+		verb_dict[verb] = 0
+	verb_dict[verb] += 1
+
+def extract_gei_V(infile):
+	rgx_pat = r'\s+给/[A-Z]+\s+(?P<verb>[\u4e00-\u9fa5]+/V[A-Z]*)\s+'
+	rgx = re.compile(rgx_pat)
+	fin =  open(infile, 'r', encoding='utf-8')
+	verb_dict = {}
+	for line in fin:
+		for mat in rgx.finditer(line):
+			count_gei_V(verb_dict, mat)
+	fin.close()
+	return verb_dict
+
+infile = './files/sample_corpus_with_pos-teacher.txt'
+verb_dict = extract_gei_V(infile)
+for item in verb_dict:
+	print(item, verb_dict[item])
