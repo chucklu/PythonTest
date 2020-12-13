@@ -2,6 +2,7 @@ import re
 def count_gei_V(verb_dict, mat):
 	if(mat==None):
 		return
+	print(mat)
 	verb = mat.group('verb')
 	if verb not in verb_dict:
 		verb_dict[verb] = 0
