@@ -22,5 +22,9 @@ def extract_gei_V(infile):
 
 infile = './files/sample_corpus_with_pos.txt'
 verb_dict = extract_gei_V(infile)
+outfile = './files/homework6_2_a.txt'
+fout = open(outfile,'w',encoding='utf-8')
 for item in verb_dict:
-	print(item, verb_dict[item])
+	fout.write(f'{verb_dict[item]}:{item}\n')
+	#print(item, verb_dict[item])
+fout.close()
