@@ -1,13 +1,6 @@
 import re
-txt = '''
-This is a broken 
-sentence.
-This is another sentence.
-'''
-rgx_pat = r'(\w+ )\s*(\r)?\n\s*'
-mats = re.finditer(rgx_pat, txt);
-for mat in mats:
-	print(mat)
-
-txt = re.sub(rgx_pat, r'\1', txt)
-print(txt)
+rgx_pat = 'a(b|c)*d'
+rgx = re.compile(rgx_pat, flags=re.IGNORECASE)
+txt = 'ad,abd,acd,abbd,abcd,ACCD,acbccd,aed'
+for mat in rgx.finditer(txt):
+	print(mat.group())
