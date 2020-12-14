@@ -43,10 +43,9 @@ def extract_post_source(content):
     #     source = mat.group('source')
     # else:
     #     print('match source failed')
-    for mat in regex.finditer(content):
-        temp_source = mat.group('source')
-        source = f'{source}\n{temp_source}'
-    #print(source)
+    source_list = regex.findall(content)
+    source = ''.join(source_list)
+    print(source)
     #print('end extract_post_source')
     return source
 
