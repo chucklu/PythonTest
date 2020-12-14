@@ -29,15 +29,23 @@ def extract_post_time(content):
     regex = re.compile(rgx_pat,flags = re.MULTILINE|re.DOTALL)
     mat = regex.match(content)
     time = mat.group('time')
+    #print(time)
     return time
 
 def extract_post_source(content):
     #print('start extract_post_source')
     source = '' 
-    # rgx_pat = r'.*(?P<source>来源.*\s+.*)post_jubao.*>举报</a>.*'
-    # regex = re.compile(rgx_pat,flags = re.MULTILINE|re.DOTALL)
+    rgx_pat = r'(?P<source>来源[:：].*\n)'
+    regex = re.compile(rgx_pat)
+    # the match did not work, so we use finditer method here
     # mat = regex.match(content)
-    # source = mat.group('source')
+    # if mat:
+    #     source = mat.group('source')
+    # else:
+    #     print('match source failed')
+    for mat in regex.finditer(content):
+        temp_source = mat.group('source')
+        source = f'{source}\n{temp_source}'
     #print(source)
     #print('end extract_post_source')
     return source
@@ -50,7 +58,7 @@ def extract_text(content):
     if mat:
         text = mat.group('text')
     else:
-        print('match failed')
+        print('match text failed')
     print(text)
     return text
 
