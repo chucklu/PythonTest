@@ -35,7 +35,7 @@ def extract_post_time(content):
 def extract_post_source(content):
     #print('start extract_post_source')
     source = '' 
-    rgx_pat = r'(?P<source>来源[:：].*\n)'
+    rgx_pat = r'来源[:：].*'
     regex = re.compile(rgx_pat)
     # the match did not work, so we use finditer method here
     # mat = regex.match(content)
@@ -44,21 +44,18 @@ def extract_post_source(content):
     # else:
     #     print('match source failed')
     source_list = regex.findall(content)
-    source = ''.join(source_list)
-    print(source)
+    source = '\n'.join(source_list)
+    #print(source)
     #print('end extract_post_source')
     return source
 
 def extract_text(content):
     text = ''
-    rgx_pat = r'.*(?P<text><div class="post_body">.*</div>").*<div class="post_statement">.*'
-    regex = re.compile(rgx_pat,flags = re.MULTILINE|re.DOTALL)
-    mat = regex.match(content)
-    if mat:
-        text = mat.group('text')
-    else:
-        print('match text failed')
-    print(text)
+    rgx_pat = r'<p>.*<\/p>'
+    regex = re.compile(rgx_pat)
+    paragraph_list = regex.findall(content)
+    text = '\n'.join(paragraph_list)
+    #print(text)
     return text
 
 def export(url, outfile):
