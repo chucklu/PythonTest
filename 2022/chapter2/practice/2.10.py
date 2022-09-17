@@ -1,3 +1,7 @@
 from turtle import *
-circle(200)
+radius = 200
+up()
+setpos(pos()+(0, -radius))
+down()
+circle(radius)
 done()
