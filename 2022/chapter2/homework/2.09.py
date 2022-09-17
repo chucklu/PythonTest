@@ -1,37 +1,32 @@
 import imp
+from operator import le
 from turtle import *
 import numpy as np
 
 sum = 0
-step = 40
-length = 40
-count = 0
+step = 20
+length = 10
+
 
 def randomColor():
-    color = tuple(np.random.randint(0,256,3))
+    color = tuple(np.random.randint(0, 256, 3))
     print(color)
     return color
 
-pensize(25)
+
+pensize(15)
 left(90)
 
-sum=0
 while True:
+    length += step
     circle(length, 180)
     print(heading())
-    circle(length*2, 180)
+
+    length += step
+    circle(length, 180)
     print(heading())
-    sum+=1
-    if(sum>=10):
+
+    sum += 1
+    if (sum >= 3):
         break
-# while True:
-#     if (count >= 2):
-#         length += step
-#         count = 0
-#     left(180)
-#     circle(length,180)
-#     count = count+1
-#     sum += 1
-#     if (sum >= 39):
-#         break
 done()
