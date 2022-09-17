@@ -6,6 +6,7 @@ import numpy as np
 sum = 0
 step = 20
 length = 10
+part = 6
 
 
 def setRandomPenColor():
@@ -19,15 +20,19 @@ def drawSnake():
     global length
     global step
     length += step
-    setRandomPenColor()
-    circle(length, 60)
 
-    setRandomPenColor()
-    circle(length, 60)
+    global part
+    count = part
+    angle = 180/part
+    while count > 0:
+        drawPart(angle)
+        count -= 1
+    # print(heading())
 
+
+def drawPart(angle):
     setRandomPenColor()
-    circle(length, 60)
-    #print(heading())
+    circle(length, angle)
 
 
 # Creating the screen object
