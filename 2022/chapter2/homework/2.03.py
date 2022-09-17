@@ -11,22 +11,26 @@ screen.colormode(255)
 penup()
 fd(-250)
 pendown()
+
 pensize(25)
-pencolor("purple")
 seth(-40)
+
 for i in range(4):
-    color = tuple(np.random.random(size=3) * 256)
+    color = tuple(np.random.randint(0,256,3))
     pencolor(color)
     circle(40, 80)
 
-    color = tuple(np.random.random(size=3) * 256)
+    color = tuple(np.random.randint(0,256,3))
     pencolor(color)
     circle(-40, 80)
 
-color = tuple(np.random.random(size=3) * 256)
+color = tuple(np.random.randint(0,256,3))
 pencolor(color)
 circle(40, 80/2)
 fd(40)
+
+color = tuple(np.random.randint(0,256,3))
+pencolor(color)
 circle(16, 180)
 fd(40 * 2/3)
 done()
