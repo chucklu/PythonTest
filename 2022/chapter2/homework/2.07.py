@@ -1,6 +1,6 @@
 from math import sqrt
 from turtle import *
-length = 300
+length = 200
 sum = 0
 setheading(270)
 while True:
@@ -11,7 +11,7 @@ while True:
     left(120)
 
 up()
-goto(pos()+(-50*sqrt(3), -150))
+goto(pos()+(-length/6*sqrt(3), -length/2))
 setheading(30)
 down()
 
