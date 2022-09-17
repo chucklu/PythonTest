@@ -1,6 +1,6 @@
 # 太阳花的绘制
 from turtle import *
-setposition(-200,0)
+#setposition(-200,0)
 color('red', 'yellow')
 sum = 0
 begin_fill()
