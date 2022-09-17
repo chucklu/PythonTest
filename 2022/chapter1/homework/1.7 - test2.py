@@ -12,3 +12,4 @@ while True:
     if (abs(pos())) < 1:
         break
 end_fill()
+done()
