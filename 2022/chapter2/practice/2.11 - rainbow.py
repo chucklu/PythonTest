@@ -1,6 +1,8 @@
 from turtle import *
 import numpy as np
 
+colorList=['red','orange','yellow','green','indigo','blue','violet','white']
+
 # Creating the screen object
 screen = Screen()
 
@@ -25,7 +27,8 @@ def drawCircle(r):
     down()
     setheading(90)
 
-    setRandomFillColor()
+    color = colorList[count]
+    fillcolor(color)
     begin_fill()
     circle(r, 180)
     end_fill()
@@ -35,8 +38,9 @@ radius = 200
 count = 0
 step = 20
 
-while count < 7:
+while count < 8:
     drawCircle(radius)
     radius = radius-step
     count = count+1
+
 done()
