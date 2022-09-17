@@ -3,6 +3,7 @@ from turtle import *
 fillcolor("red")
 print("position:{}, heading:{}".format(pos(),heading()))
 left(180+72)
+print("position:{}, heading:{}".format(pos(),heading()))
 begin_fill()
 while True:
     forward(200)
