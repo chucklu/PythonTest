@@ -1,7 +1,8 @@
 from turtle import *
 import numpy as np
 
-colorList=['red','orange','yellow','green','indigo','blue','violet','white']
+colorList = ['red', 'orange', 'yellow',
+             'green', 'cyan', 'blue', 'purple', 'white']
 
 # Creating the screen object
 screen = Screen()
@@ -22,7 +23,8 @@ def drawCircle(r):
     home()
     global step
     global count
-    setpos(pos()+(-step*count, 0))
+    rightOffset = 300
+    setpos(pos()+(-step*count+rightOffset, 0))
     print(pos())
     down()
     setheading(90)
@@ -34,7 +36,7 @@ def drawCircle(r):
     end_fill()
 
 
-radius = 200
+radius = 300
 count = 0
 step = 20
 
