@@ -1,3 +1,4 @@
+#整数序列求和
 n = input("请输入整数N：")
 sum = 0
 for i in range(int(n)):
