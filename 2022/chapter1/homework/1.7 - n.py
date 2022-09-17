@@ -1,10 +1,16 @@
 # 正N边形的绘制
 from turtle import *
+import numpy as np
 
-count=3
+def setRandomFillColor():
+    color = tuple(np.random.randint(0, 256, 3))
+    print(color)
+    fillcolor(color)
+    return color
 
 def drawN(n):
     begin_fill()
+    setRandomFillColor()
     temp = 180*(n-2)/n
     angle = 180 - temp
     while True:
@@ -16,9 +22,14 @@ def drawN(n):
             break
     end_fill()
 
-fillcolor("red")
-while count<10:
+# Creating the screen object
+screen = Screen()
+# Setting the screen color-mode
+screen.colormode(255)
+
+count = 9
+while count > 2:
     drawN(count)
-    count+=1
+    count -= 1
 
 done()
