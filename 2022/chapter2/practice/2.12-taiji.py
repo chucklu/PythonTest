@@ -9,12 +9,19 @@
 from turtle import *
 radius = 300
 up()
-setpos(pos()+(0, -radius))
+setpos(pos()+(-radius,0))
 down()
+
 begin_fill()
+seth(270)
 circle(radius,180)
-circle(radius/2.0, 180)
+seth(270)
 circle(-radius/2.0, 180)
+circle(radius/2.0, 180)
 end_fill()
+
+seth(90)
 circle(-radius,180)
+
+
 done()
