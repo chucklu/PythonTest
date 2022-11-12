@@ -6,14 +6,6 @@ def drawKoch(length, level):
     if(level==0):
         forward(length)
         return
-    elif(level==1):
-        forward(tempLength)
-        left(60)
-        forward(tempLength)
-        right(120)
-        forward(tempLength)
-        left(60)
-        forward(tempLength)
     else:
         drawKoch(tempLength,level-1)
         left(60)
@@ -24,5 +16,5 @@ def drawKoch(length, level):
         drawKoch(tempLength,level-1)
 
 speed(0)
-drawKoch(300,3)
+drawKoch(600,3)
 done()
