@@ -14,6 +14,9 @@ def drawKoch(length, level):
 
 speed(0)
 pencolor("red")
+up()
+setposition(pos()+(0,250))
+down()
 n = 4
 tempAngle = 180*(n-2)/n
 angle = 180 - tempAngle
