@@ -16,6 +16,13 @@ def drawKoch(length, level):
         forward(tempLength)
     else:
         drawKoch(tempLength,level-1)
+        left(60)
+        drawKoch(tempLength,level-1)
+        right(120)
+        drawKoch(tempLength,level-1)
+        left(60)
+        drawKoch(tempLength,level-1)
 
-drawKoch(300,1)
+speed(0)
+drawKoch(300,3)
 done()
