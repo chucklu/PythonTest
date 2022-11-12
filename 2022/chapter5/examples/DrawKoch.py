@@ -7,13 +7,9 @@ def drawKoch(length, level):
         forward(length)
         return
     else:
-        drawKoch(tempLength, level-1)
-        left(60)
-        drawKoch(tempLength, level-1)
-        left(-120)
-        drawKoch(tempLength, level-1)
-        left(60)
-        drawKoch(tempLength, level-1)
+        for angle in [0, 60, -120, 60]:
+            left(angle)
+            drawKoch(tempLength, level-1)
 
 
 speed(0)
