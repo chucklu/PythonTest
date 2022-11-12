@@ -15,5 +15,5 @@ def drawKoch(length, level):
 speed(0)
 for angle in [0,120,120]:
     right(angle)
-    drawKoch(300,1)
+    drawKoch(300,3)
 done()
