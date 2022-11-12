@@ -10,3 +10,10 @@ print(result)
 
 result = jieba.lcut_for_search(str)
 print(result)
+
+result = jieba.lcut("习大大期盼有更好的教育")
+print(result)
+
+jieba.add_word("习大大")
+result = jieba.lcut("习大大期盼有更好的教育")
+print(result)
