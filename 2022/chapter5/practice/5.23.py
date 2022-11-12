@@ -7,7 +7,7 @@ def drawKoch(length, level):
         forward(length)
         return
     else:
-        for angle in [0, 60, -120, 60]:
+        for angle in [0, -60, 120, -60]:
             left(angle)
             drawKoch(tempLength, level-1)
 
@@ -15,6 +15,6 @@ def drawKoch(length, level):
 speed(0)
 for angle in [0,120,120]:
     right(angle)
-    drawKoch(300,3)
+    drawKoch(300,1)
 hideturtle()
 done()
