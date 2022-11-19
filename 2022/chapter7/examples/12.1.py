@@ -20,19 +20,19 @@ def get_char(r, b, g, alpha=256):
 
 
 def main():
-    im = Image.open('doraemon.jpg')
-    WIDTH, HEIGHT = 103, 123
+    im = Image.open('astro.jpg')
+    WIDTH, HEIGHT = 270, 101
     im = im.resize((WIDTH, HEIGHT))
     txt = ""
     for i in range(HEIGHT):
         for j in range(WIDTH):
             txt += get_char(*im.getpixel((j, i)))
         txt += '\n'
-    fo = open("doraemon.txt", "w")
+    fo = open("astro.txt", "w")
     fo.write(txt)
     fo.close()
 
 
-# ascii_char.reverse() #黑色背景启用这个,
+# ascii_char.reverse() #黑色背景启用这个,要尽量避免使用黑色背景
 main()
 # print(len(ascii_char))
