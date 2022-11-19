@@ -13,6 +13,9 @@ def get_char(r, b, g, alpha=256):
     index = math.floor(len(ascii_char)*percent)  # 计算出index
     return ascii_char[index]  # 对应灰度值与字符
 
+    # unit = 256 / len(ascii_char)
+    # return ascii_char[int(gray//unit)]
+
 
 def main():
     im = Image.open('astro.jpg')
