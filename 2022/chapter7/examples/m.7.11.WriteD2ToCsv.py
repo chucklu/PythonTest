@@ -7,14 +7,13 @@ for line in fr:
 for i in range(len(ls)):
     for j in range(len(ls[i])):
         temp = ls[i][j].replace(".", "")
-        print("temp{}{} = {}".format(i,j,temp))
+        #print("temp{}{} = {}".format(i,j,temp))
         if (temp.isnumeric()):
-            print("{} is numeric".format(temp))
-            percentage = float(ls[i][j]/100)
+            #print("{} is numeric".format(temp))
+            percentage = float(ls[i][j])/100
             ls[i][j] = "{:.2f}%".format(percentage)
 for row in ls:
     print(row)
     fw.write(",".join(row)+"\n")
-print(ls)
 fr.close()
 fw.close()
