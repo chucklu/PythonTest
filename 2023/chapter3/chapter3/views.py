@@ -21,7 +21,7 @@ def getData3(request,data):
 
 def getData4(request,data):
     s="使用int转换器，数据为"+str(data)+"，类型为"+str(type(data))
-    return HttpResponse(escape(s))
+    return HttpResponse(escape(s))#escape for <class 'int'>
 
 def getDefaultData(request,data=123):
     return HttpResponse("使用带默认值的参数data=123，当前值"+str(data))
