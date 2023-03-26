@@ -22,7 +22,7 @@ sub=[path("sub/",subViews.useincludetest)]
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("root/",include('testinclude.urls')),
+    path("root1/",include('testinclude.urls')),
     path("root2/",subViews.useincludetest),
     path("root3/",include(sub)),
     re_path("^[A-Za-z]+$",views.CharInUrl),
@@ -34,7 +34,7 @@ urlpatterns = [
     re_path("^redata/(?P<urlData>[a-z0-9]+)$",views.getData),
     path("default/<data>",views.getDefaultData),
     path("default/",views.getDefaultData),
-    path("exdata/<exdata>",views.getExData,{"ex":"2233"}),
+    path("exdata/<data>",views.getExData,{"exdata":"2233"}),
     path("rev/abc",views.getUrlNoParam,name="urlNoPara"),
     path("rev2/<data>",views.getUrlArgs,name="UrlArgs"),
     path("rev3/<data>",views.getUrlKWArgs,name="UrlKwargs"),

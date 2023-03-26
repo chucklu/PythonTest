@@ -15,8 +15,9 @@ def getData2(requset,Data1,Data2):
 
 def getData3(request,data):
  #   s="使用str转换器,数据为"+data+",类型为"+type(data).__name__
-    s=f"使用str转换器,数据为{data},类型为{type(data)}"
-    return HttpResponse(escape(s))
+    s=f"使用str转换器,数据为{data},类型为{type(data).__name__}"
+    #return HttpResponse(escape(s))
+    return HttpResponse(f'{s}')
 
 def getData4(request,data):
     s="使用int转换器，数据为"+str(data)+"，类型为"+str(type(data))
@@ -25,8 +26,8 @@ def getData4(request,data):
 def getDefaultData(request,data=123):
     return HttpResponse("使用带默认值的参数data=123，当前值"+str(data))
 
-def getExData(request,exdata,ex):
-    return HttpResponse("使用带附加数据的参数，数据为"+exdata+",附加值为"+ex)
+def getExData(request,data,exdata):
+    return HttpResponse("使用带附加数据的参数，数据为"+data+",附加值为"+exdata)
 
 from django.urls import reverse
 def getUrlNoParam(request):
