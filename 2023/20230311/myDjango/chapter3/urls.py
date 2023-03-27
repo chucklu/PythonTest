@@ -1,13 +1,8 @@
 from django.urls import path,include
 from django.urls import re_path
 from . import views
-#from testinclude import views as subViews
-#sub=[path("sub/",subViews.useincludetest)]
 
 urlpatterns =[
-    #path("root1/",include('testinclude.urls')),
-    #path("root2/",subViews.useincludetest),
-    #path("root3/",include(sub)),
     re_path("^[A-Za-z]+$",views.CharInUrl),
     re_path("^[0-9]{5,}$",views.NumberInUrl),
     path("data1/<urlData>/",views.getData),

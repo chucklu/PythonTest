@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'first',
     'debug_toolbar',
     'chapter3',
+    'testinclude',
 ]
 
 MIDDLEWARE = [

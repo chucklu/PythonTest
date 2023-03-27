@@ -16,9 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from first import views
+from testinclude import views as subViews
+sub=[path("sub/",subViews.useincludetest)]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("root1/",include('testinclude.urls')),
+    path("root2/",subViews.useincludetest),
+    path("root3/",include(sub)),
     path('first/', include("first.urls")),
     path('__debug__/', include('debug_toolbar.urls')),
     path('chapter3/', include("chapter3.urls"))
