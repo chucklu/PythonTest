@@ -19,7 +19,7 @@ orphaned_nodes = [n for n in G.nodes() if G.in_degree(n) == 0 and G.out_degree(n
 print("Orphaned nodes: ", orphaned_nodes)
 
 # Detect looped nodes
-looped_nodes = [n for n in nx.simple_cycles(G)]
+looped_nodes = list(nx.simple_cycles(G))
 print("Looped nodes: ", looped_nodes)
 
 cycles = nx.find_cycle(G)
