@@ -1,5 +1,6 @@
 import networkx as nx
 from pyvis.network import Network
+import matplotlib.pyplot as plt
 
 # Create a directed graph
 G = nx.DiGraph()
@@ -25,6 +26,10 @@ print("Looped nodes: ", looped_nodes)
 cycles = nx.find_cycle(G)
 print(f'cycles = {cycles}')
 
+pos = nx.spring_layout(G)
+nx.draw(G,pos,with_labels=True,arrows=True)
+plt.show()
+
 #Create a Pyvis Network object:
 net=Network(notebook=True,directed=True)
 #Add nodes to the network:
@@ -35,3 +40,4 @@ for edge in G.edges():
     net.add_edge(edge[0], edge[1])
 #Display the network:
 net.show('example.html')
+
