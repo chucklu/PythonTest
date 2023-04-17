@@ -12,7 +12,7 @@ G.add_edge(5,4)
 G.add_edge(5,6)
 G.add_edge(4,1)
 G.add_edge(2,5)
-G.add_edge(3,6)
+G.add_edge(6,3)
 
 # Detect orphaned nodes
 orphaned_nodes = [n for n in G.nodes() if G.in_degree(n) == 0 and G.out_degree(n) == 0]
@@ -29,7 +29,7 @@ print(f'cycles = {cycles}')
 net=Network(notebook=True,directed=True)
 #Add nodes to the network:
 for node in G.nodes():
-    net.add_node(node)
+    net.add_node(node,label=f'{node}')
 #Add edges to the network:
 for edge in G.edges():
     net.add_edge(edge[0], edge[1])
