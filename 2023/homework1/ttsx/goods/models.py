@@ -18,7 +18,7 @@ class GoodsInfo(models.Model):
     # 商品名字
     goods_name = models.CharField(max_length=100)
     # 商品单位
-    goods_unit = models.CharField(max_length=50)
+    goods_unit = models.CharField(max_length=50, default='份')
     # 商品价格
     goods_price = models.IntegerField(default=0)
     # 商品图片
