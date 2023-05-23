@@ -19,5 +19,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test<urlData>',views.showData)
+    path('testHttp404', views.testHttp404),
+    path('test<urlData>', views.showData),
 ]
