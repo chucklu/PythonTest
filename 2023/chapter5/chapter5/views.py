@@ -8,3 +8,7 @@ def showData(request, urlData):
 
 def testHttp404(request):
     raise Http404('This page does not exist')
+
+def showGetData(request):
+    s = f"name is {request.GET['name']}, age is {request.GET['age']}"
+    return HttpResponse(s)

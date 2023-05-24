@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('testHttp404', views.testHttp404),
     path('test<urlData>', views.showData),
+    path('showGetData',views.showGetData),
 ]
