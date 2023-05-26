@@ -20,4 +20,5 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('getTime',views.getTime),
+    path('getTimeByTemplateResponse',views.getTimeByTemplateResponse),
 ]
