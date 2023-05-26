@@ -23,4 +23,5 @@ urlpatterns = [
     path('test<urlData>', views.showData),
     path('showGetData',views.showGetData),
     path('useClassView',views.useClassView.as_view()),
+    path('subClassView',views.subClassView.as_view()),
 ]

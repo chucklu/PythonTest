@@ -18,15 +18,32 @@ def showGetData(request):
 
 class useClassView(View):
     news='使用基于类的视图'
-    def get(self, request):
-        csrf_token = get_token(request)
-        form_html = f'<form name="input" action="" method="post">' \
+    form_html = f'<form name="input" action="" method="post">' \
                     f'请输入数据：<input type="text" name="data">' \
-                    f'<input type="hidden" name="csrfmiddlewaretoken" value="{csrf_token}">' \
+                    f'<input type="hidden" name="csrfmiddlewaretoken" value="">' \
                     f'<input type="submit" value="提交">' \
                     f'</form>'
+
+    def get(self, request):
+        csrf_token = get_token(request)
+        form_html = self.form_html.replace('value=""', f'value="{csrf_token}"')
         s = f"{self.news}<br>请求的方法为{request.method}<br>{form_html}"
         return HttpResponse(s)
+    
     def post(self, request):
-        s = f"{self.news}<br>请求的方法为{request.method}"
+         # Retrieve the posted data
+        posted_data = request.POST.get('data', '')
+        
+        # Render the posted data
+        rendered_data = f"您提交的数据为：{posted_data}"
+
+        s = f"{self.news}<br>请求的方法为{request.method}<br>{rendered_data}"
+        return HttpResponse(s)
+    
+class subClassView(useClassView):
+    news='使用基于扩展类的视图'
+    def get(self, request):
+        csrf_token = get_token(request)
+        form_html = self.form_html.replace('value=""', f'value="{csrf_token}"')
+        s = f"{self.news}<br>重塑的{request.method}<br>{form_html}"
         return HttpResponse(s)
