@@ -17,8 +17,12 @@ def showGetData(request):
 
 class useClassView(View):
     news='使用基于类的视图'
+    form_html = '<form name="input" action="" method="post">' \
+                    '请输入数据：<input type="text" name="data">' \
+                    '<input type="submit" value="提交">' \
+                    '</form>'
     def get(self, request):
-        s = f"{self.news}<br>请求的方法为{request.method}"
+        s = f"{self.news}<br>请求的方法为{request.method}<br>{self.form_html}"
         return HttpResponse(s)
     def post(self, request):
         s = f"{self.news}<br>请求的方法为{request.method}"
