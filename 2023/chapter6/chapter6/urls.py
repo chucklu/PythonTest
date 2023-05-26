@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('getTime', views.getTime),
     path('getTimeByTemplateResponse', views.getTimeByTemplateResponse),
-    path('getTable', views.getTable)
+    path('getTable', views.getTable),
+    path('useTemplatePaginator', views.useTemplatePaginator),
 ]

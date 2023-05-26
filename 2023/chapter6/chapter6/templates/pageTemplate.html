@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>学生成绩</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>考号</th>
+                <th>姓名</th>
+                <th>语文</th>
+                <th>数学</th>
+                <th>英语</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if scores %}
+            {% for score in scores %}
+            <tr>
+                <td>{{score.id}}</td>
+                <td>{{score.kh}}</td>
+                <td>{{score.name}}</td>
+                <td>{{score.chinese}}</td>
+                <td>{{score.math}}</td>
+                <td>{{score.english}}</td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td colspan="6">没有数据</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+
+</html>
