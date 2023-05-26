@@ -7,3 +7,11 @@ def getTime(request):
 
 def getTimeByTemplateResponse(request):
     return TemplateResponse(request, 'myTemplate.html', {'time': datetime.now()})
+
+def getTable(request):
+    table=[
+        ['a','b','c'],
+        ['d','e','f'],
+        ['g','h','i']   
+    ]
+    return render(request, 'table.html',{'data':table})
