@@ -36,6 +36,22 @@
             {% endif %}
         </tbody>
     </table>
+    <!-- Pagination links -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if scores.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ scores.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current-page">{{ scores.number }}</span>
+
+            {% if scores.has_next %}
+            <a href="?page={{ scores.next_page_number }}">next</a>
+            <a href="?page={{ scores.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
 </body>
 
 </html>
