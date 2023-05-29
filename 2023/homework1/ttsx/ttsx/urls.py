@@ -17,9 +17,11 @@ from django.conf.urls import include
 from django.urls import path, re_path
 from django.contrib import admin
 from goods import views as goods_views  # 导入视图函数
+from cart import views as cart_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^index/$', goods_views.index),
     re_path(r'^detail/$', goods_views.detail),
+    re_path(r'^cart/add_cart/$', cart_views.add_cart),
 ]

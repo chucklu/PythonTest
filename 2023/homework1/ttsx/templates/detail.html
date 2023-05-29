@@ -28,7 +28,7 @@
             <ul class="cart_goods_show">
                 {% for cart_goods in cart_goods_list %}
                 <li>
-                    <img src="/static/images/goods/{{ cart_goods.goods_img }}" alt="商品图片">
+                    <img src="/static/images/goods/{{ cart_goods.goods_img }}.jpg" alt="商品图片">
                     <h4>{{ cart_goods.goods_name }}</h4>
                     <div>{{ cart_goods.goods_num }}</div>
                 </li>
@@ -138,7 +138,7 @@
 	</div>
 	<div class="add_jump"></div>
 
-	<script type="text/javascript" src="/static/js/jquery-1.12.2.js"></script>
+	<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
 		var $add_x = $('#add_cart').offset().top;
 		var $add_y = $('#add_cart').offset().left;
