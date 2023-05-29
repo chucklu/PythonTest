@@ -24,4 +24,5 @@ urlpatterns = [
     re_path(r'^index/$', goods_views.index),
     re_path(r'^detail/$', goods_views.detail),
     re_path(r'^cart/add_cart/$', cart_views.add_cart),
+    re_path(r'^goods/$', goods_views.goods),
 ]

@@ -28,7 +28,7 @@
             <ul class="cart_goods_show">
                 {% for cart_goods in cart_goods_list %}
                 <li>
-                    <img src="/static/images/goods/{{ cart_goods.goods_img }}.jpg" alt="商品图片">
+                    <img src="/static/goods/{{ cart_goods.goods_img }}.jpg" alt="商品图片">
                     <h4>{{ cart_goods.goods_name }}</h4>
                     <div>{{ cart_goods.goods_num }}</div>
                 </li>
@@ -67,7 +67,7 @@
 	</div>
 
 	<div class="goods_detail_con clearfix">
-		<div class="goods_detail_pic fl"><img src="/static/images/goods/{{goods_data.goods_img}}.jpg"></div>
+		<div class="goods_detail_pic fl"><img src="/static/goods/{{goods_data.goods_img}}.jpg"></div>
 
 		<div class="goods_detail_list fr">
             <h3>{{ goods_data.goods_name }}</h3>
@@ -94,12 +94,12 @@
 				<h3>新品推荐</h3>
 				<ul>
 					<li>
-						<a href="#"><img src="/static/images/goods/15178247177393975.jpg"></a>
+						<a href="#"><img src="/static/goods/15178247177393975.jpg"></a>
 						<h4><a href="#">黄瓜</a></h4>
 						<div class="prize">￥3.90</div>
 					</li>
 					<li>
-						<a href="#"><img src="/static/images/goods/15180585491323297.jpg"></a>
+						<a href="#"><img src="/static/goods/15180585491323297.jpg"></a>
 						<h4><a href="#">橘子</a></h4>
 						<div class="prize">￥16.80</div>
 					</li>
