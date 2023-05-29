@@ -13,7 +13,7 @@ def getCategoriesWithLastFourGoods():
     return categories
 
 
-def getCartData():
+def getCartData(request):
     cart_dict = {}
 
     # 读取购物车商品列表
@@ -37,7 +37,7 @@ def getCartData():
 def index(request):
 
     categoriesWithLastFourGoods = getCategoriesWithLastFourGoods()
-    cart_dict = getCartData()
+    cart_dict = getCartData(request)
 
     return render(request, 'index.html', {
         'categories': categoriesWithLastFourGoods,
@@ -57,7 +57,7 @@ def detail(request):
     categories = GoodsCategory.objects.all()
 
     # 读取购物车商品列表
-    cart_dict = getCartData()
+    cart_dict = getCartData(request)
 
     return render(request, 'detail.html', {'categories': categories,
                                            'goods_data': goods_data,
