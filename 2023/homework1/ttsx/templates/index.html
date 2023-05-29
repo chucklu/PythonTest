@@ -43,8 +43,18 @@
 			<!--根据图片提示添加搜索按钮，应用样式"input_btn"和"fr"-->
 		</div>
 		<div class="guest_cart fr">
-			<a href="#" class="cart_name fl">我的购物车</a>
-			<div class="goods_count fl" id="show_count">1</div>
+			<a href="/cart/show_cart/" class="cart_name fl">我的购物车</a>
+            <div class="goods_count fl">{{ cart_goods_count }}</div>
+            <ul class="cart_goods_show">
+                {% for cart_goods in cart_goods_list %}
+                <li>
+                    <img src="/static/images/goods/{{ cart_goods.goods_img }}" alt="商品图片">
+                    <h4>{{ cart_goods.goods_name }}</h4>
+                    <div>{{ cart_goods.goods_num }}</div>
+                </li>
+                {% endfor %}
+            </ul>
+            
 		</div>
 	</div>
 
