@@ -13,7 +13,6 @@ def getCategoriesWithLastFourGoods():
     print(categories)
     return categories
 
-
 def getCartData(request):
     cart_dict = {}
 
@@ -34,7 +33,7 @@ def getCartData(request):
     cart_dict['cart_goods_count'] = cart_goods_count
     return cart_dict
 
-
+#25.2.6 首页页面功能实现
 def index(request):
 
     categoriesWithLastFourGoods = getCategoriesWithLastFourGoods()
@@ -46,7 +45,7 @@ def index(request):
         'cart_goods_count': cart_dict['cart_goods_count'],
     })
 
-
+#25.2.7 商品详细页面功能实现
 def detail(request):
     """商品详细页面"""
 
@@ -65,6 +64,7 @@ def detail(request):
                                            'cart_goods_list': cart_dict['cart_goods_list'],
                                            'cart_goods_count': cart_dict['cart_goods_count'],})
 
+#25.2.8 商品分类页面功能实现
 def goods(request):
     """商品展示页面"""
 
