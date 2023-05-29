@@ -50,7 +50,7 @@ def detail(request):
     """商品详细页面"""
 
     # 获得产品ID
-    goods_id = request.GET.get('id', 1)
+    goods_id = request.GET.get('id', 520)
     # 查询该商品
     goods_data = GoodsInfo.objects.get(id=goods_id)
     # 查询商品分类
