@@ -20,5 +20,6 @@ from goods import views as goods_views  # 导入视图函数
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^index/$', goods_views.index)
+    re_path(r'^index/$', goods_views.index),
+    re_path(r'^detail/$', goods_views.detail),
 ]
