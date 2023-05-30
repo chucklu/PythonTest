@@ -39,7 +39,7 @@ def show_cart(request):
     # 商品总数
     cart_goods_count = 0
     # 商品总价
-    cart_goods_money = 0
+    cart_goods_money = 0.0
     for goods_id, goods_num in request.COOKIES.items():
         if goods_id == 'csrftoken':
             continue
@@ -84,7 +84,7 @@ def place_order(request):
     # 商品总数
     cart_goods_count = 0
     # 商品总价
-    cart_goods_money = 0
+    cart_goods_money = 0.0
     for goods_id, goods_num in request.COOKIES.items():
         if goods_id == 'csrftoken':
             continue
@@ -97,6 +97,9 @@ def place_order(request):
         cart_goods_count = cart_goods_count + int(goods_num)
         # 累计商品总价
         cart_goods_money += int(goods_num) * cart_goods.goods_price
+
+    freight = 10.0
+    cart_goods_money = round(cart_goods_money+freight,2)
 
     return render(request, 'place_order.html', {'cart_goods_list': cart_goods_list,
                                                 'cart_goods_count': cart_goods_count,

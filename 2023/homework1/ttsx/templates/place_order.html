@@ -4,12 +4,18 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>天天生鲜-提交订单</title>
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
 </head>
 <body>
+	<div class="header_con">
+        <div class="header">
+            <div class="welcome fl">欢迎来到天天生鲜!</div>
+        </div>      
+    </div>
+
 	<div class="search_bar clearfix">
-		<a href="/index/" class="logo fl"><img src="images/logo.png"></a>
+		<a href="/index/" class="logo fl"><img src="/static/images/logo.png"></a>
 		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;提交订单</div>	
 	</div>
 	
@@ -23,40 +29,23 @@
 			<li class="col05">小计</li>
 		</ul>
 
-		
+		{% for cart_goods in cart_goods_list %}
         <ul class="goods_list_td clearfix">
-			<li class="col01">1</li>			
-			<li class="col02"><img src="goods/15180585610390108.jpg"></li>
-			<li class="col03">鲜逢 狮小鲜.爱心鱼豆腐 100g</li>
-			<li class="col05">13元</li>
-			<li class="col06">3</li>
-			<li class="col07">39元</li>
-		</ul>
-        
-        <ul class="goods_list_td clearfix">
-			<li class="col01">1</li>			
-			<li class="col02"><img src="goods/15180585610380106.jpg"></li>
-			<li class="col03">北洋海产North Shore Fishery 原味鱼丸 227g</li>
-			<li class="col05">26元</li>
-			<li class="col06">2</li>
-			<li class="col07">52元</li>
-		</ul>
-        
-        <ul class="goods_list_td clearfix">
-			<li class="col01">1</li>			
-			<li class="col02"><img src="goods/15180585917907696.jpg"></li>
-			<li class="col03">内蒙古 羔羊法式羊后腿/蒙羊 2150g</li>
-			<li class="col05">199元</li>
-			<li class="col06">2</li>
-			<li class="col07">398元</li>
-		</ul>
-        
+            <li class="col01">1</li>            
+            <li class="col02"><img src="/static/goods/{{ cart_goods.goods_img }}.jpg"></li>
+            <li class="col03">{{ cart_goods.goods_name }}</li>
+            <li class="col04">{{ cart_goods.goods_unit }}</li>
+            <li class="col05">{{ cart_goods.goods_price }}元</li>
+            <li class="col06">{{ cart_goods.goods_num }}</li>
+            <li class="col07">{{ cart_goods.total_money }}元</li>
+        </ul>
+        {% endfor %}
 
 	</div>
 
 	<h3 class="common_title">收货地址</h3>
     <form action="/cart/submit_order/" method="post">
-    <input type='hidden' name='csrfmiddlewaretoken' value='5AxIfZpMZC9ouIr0N0PLuCiSQQVJFD5y' />
+	{% csrf_token %}
 	<div class="common_list_con clearfix">
 		<dl>
 			<dd>
@@ -87,13 +76,13 @@
 	</div>
 
 	<h3 class="common_title">总金额结算</h3>
-	<div class="common_list_con clearfix">
-		<div class="settle_con">
-			<div class="total_goods_count">共<em>7</em>件商品，总金额<b>489元</b></div>
-			<div class="transit">运费：<b>10元</b></div>
-			<div class="total_pay">实付款：<b>499元</b></div>
-		</div>
-	</div>
+    <div class="common_list_con clearfix">
+        <div class="settle_con">
+            <div class="total_goods_count">共<em>{{ cart_goods_count }}</em>件商品，总金额<b>{{ cart_goods_money }}元</b></div>
+            <div class="transit">运费：<b>10元</b></div>
+            <div class="total_pay">实付款：<b>{{ cart_goods_money }}元</b></div>
+        </div>
+    </div>
 
 
 	<div class="order_submit clearfix">
