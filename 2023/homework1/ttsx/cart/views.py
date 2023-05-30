@@ -99,11 +99,13 @@ def place_order(request):
         cart_goods_money += int(goods_num) * cart_goods.goods_price
 
     freight = 10.0
-    cart_goods_money = round(cart_goods_money+freight,2)
+    cart_goods_money = round(cart_goods_money,2)
+    money_to_pay = round(cart_goods_money+freight,2)
 
     return render(request, 'place_order.html', {'cart_goods_list': cart_goods_list,
                                                 'cart_goods_count': cart_goods_count,
-                                                'cart_goods_money': cart_goods_money})
+                                                'cart_goods_money': cart_goods_money,
+                                                'money_to_pay': money_to_pay})
 
 def submit_order(request):
     """保存订单"""
