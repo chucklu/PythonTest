@@ -11,17 +11,11 @@
 	<div class="header_con">
 		<div class="header">
 			<div class="welcome fl">欢迎来到天天生鲜!</div>
-			<div class="fr">
-				<!--同index.html中个人信息导航-->
-			</div>
 		</div>		
 	</div>
 
 	<div class="search_bar clearfix">
 		<a href="index.html" class="logo fl"><img src="/static/images/logo.png"></a>
-		<div class="search_con fl">
-			<!--搜索及按钮同首页-->
-		</div>
 		<div class="guest_cart fr">
 			<a href="/cart/show_cart/" class="cart_name fl">我的购物车</a>
             <div class="goods_count fl">{{ cart_goods_count }}</div>
@@ -48,13 +42,6 @@
                     {% endfor %}
                 </ul>
 			</div>
-			<ul class="navlist fl">
-				<li><a href="">首页</a></li>
-				<li class="interval">|</li>
-				<li><a href="">手机生鲜</a></li>
-				<li class="interval">|</li>
-				<li><a href="">抽奖</a></li>
-			</ul>
 		</div>
 	</div>
 
@@ -89,37 +76,15 @@
 	</div>
 
 	<div class="main_wrap clearfix">
-		<div class="l_wrap fl clearfix">
-			<div class="new_goods">
-				<h3>新品推荐</h3>
-				<ul>
-					<li>
-						<a href="#"><img src="/static/goods/15178247177393975.jpg"></a>
-						<h4><a href="#">黄瓜</a></h4>
-						<div class="prize">￥3.90</div>
-					</li>
-					<li>
-						<a href="#"><img src="/static/goods/15180585491323297.jpg"></a>
-						<h4><a href="#">橘子</a></h4>
-						<div class="prize">￥16.80</div>
-					</li>
-				</ul>
-			</div>
-		</div>
+		<ul class="detail_tab clearfix">
+			<li class="active">商品介绍</li>
+		</ul>
 
-		<div class="r_wrap fr clearfix">
-			<ul class="detail_tab clearfix">
-				<li class="active">商品介绍</li>
-				<li>评论</li>
-			</ul>
-
-			<div class="tab_content">
-				<dl>
-					<dt>商品详情：</dt>
-					<dd>{{ goods_data.goods_desc }}</dd>
-				</dl>
-			</div>
-
+		<div class="tab_content">
+			<dl>
+				<dt>商品详情：</dt>
+				<dd>{{ goods_data.goods_desc }}</dd>
+			</dl>
 		</div>
 	</div>
 
@@ -136,29 +101,6 @@
 		<p>CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved</p>
 		<p>电话：010-****888    京ICP备*******8号</p>
 	</div>
-	<div class="add_jump"></div>
-
-	<script type="text/javascript" src="/static/js/jquery-1.12.4.min.js"></script>
-	<script type="text/javascript">
-		var $add_x = $('#add_cart').offset().top;
-		var $add_y = $('#add_cart').offset().left;
-
-		var $to_x = $('#show_count').offset().top;
-		var $to_y = $('#show_count').offset().left;
-
-		$(".add_jump").css({'left':$add_y+80,'top':$add_x+10,'display':'block'})
-		$('#add_cart').click(function(){
-			$(".add_jump").stop().animate({
-				'left': $to_y+7,
-				'top': $to_x+7},
-				"fast", function() {
-					$(".add_jump").fadeOut('fast',function(){
-						$('#show_count').html(2);
-					});
-
-			});
-		})
-	</script>
 	
 </body>
 </html>
