@@ -157,15 +157,18 @@ def submit_success(request):
     order_goods_list = OrderGoods.objects.filter(goods_order=order_info)
 
     # 商品总价
-    totla_money = 0
+    total_money = 0.0
     # 商品总数量
     total_num = 0
     for goods in order_goods_list:
         goods.total_money = goods.goods_num * goods.goods_info.goods_price
-        totla_money += goods.total_money
+        total_money += goods.total_money
         total_num += goods.goods_num
 
+    total_money = round(total_money,2)
+    actual_money = round(total_money+10, 2)
     return render(request, 'success.html', {'order_info': order_info,
                                             'order_goods_list': order_goods_list,
-                                            'totla_money': totla_money,
-                                            'total_num': total_num})
+                                            'total_money': total_money,
+                                            'total_num': total_num,
+                                            'actual_money': actual_money})

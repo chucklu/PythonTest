@@ -4,12 +4,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>天天生鲜-提交订单</title>
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
 </head>
 <body>
 	<div class="search_bar clearfix">
-		<a href="/index/" class="logo fl"><img src="images/logo.png"></a>
+		<a href="/index/" class="logo fl"><img src="/static/images/logo.png"></a>
 		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;订单提交成功</div>
 	</div>
 
@@ -42,7 +42,7 @@
 			<dd>
 				<table>
                     <tr>
-						<td width="100">订单编号:</td><td>15237020298120</td>
+						<td width="100">订单编号:</td><td>{{order_info.order_id}}</td>
 					</tr>
 					<tr>
 						<td>收货地址:</td><td>传智播客</td>
@@ -64,9 +64,9 @@
     <h3 class="common_title">总金额结算</h3>
 	<div class="common_list_con clearfix">
 		<div class="settle_con">
-			<div class="total_goods_count">共<em>1</em>件商品，总金额<b>168元</b></div>
+			<div class="total_goods_count">共<em>{{total_num}}</em>件商品，总金额<b>{{total_money}}元</b></div>
 			<div class="transit">运费：<b>10元</b></div>
-			<div class="total_pay">实付款：<b>178元</b></div>
+			<div class="total_pay">实付款：<b>{{actual_money}}元</b></div>
 		</div>
 	</div>
 
