@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from goods.models import GoodsInfo
 from cart.models import OrderGoods
 from cart.models import OrderInfo
-from datetime import datetime
+import time
 
 # Create your views here.
 
@@ -123,7 +123,7 @@ def submit_order(request):
     order_info.order_recv = recv
     order_info.order_extra = extra
     # 生成订单编号
-    order_info.order_id = str(int(time.time() * 1000)) + str(int(time.clock() * 1000000))
+    order_info.order_id = str(int(time.time() * 1000)) + str(int(time.perf_counter() * 1000000))
     order_info.save()
 
     # 跳转页面
