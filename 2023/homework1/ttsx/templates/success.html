@@ -23,16 +23,16 @@
 			<li class="col05">小计</li>
 		</ul>
 
-		
+		{% for goods in order_goods_list %}
         <ul class="goods_list_td clearfix">
-			<li class="col01">1</li>
-			<li class="col02"><img src="goods/15180585503614001.jpg"></li>
-			<li class="col03">有味有道 钟爱一生 12 ~ 14支百合花鲜花 1束</li>
-			<li class="col05">168元</li>
-			<li class="col06">1</li>
-			<li class="col07">168元</li>
+			<li class="col01"></li>
+			<li class="col02"><img src="/static/goods/{{goods.goods_info.goods_img}}.jpg"></li>
+			<li class="col03">{{goods.goods_info.goods_name}}</li>
+			<li class="col05">{{goods.goods_info.goods_price}}</li>
+			<li class="col06">{{goods.goods_num}}</li>
+			<li class="col07">{{goods.total_money}}元</li>
 		</ul>
-        
+        {% endfor %}
 
 	</div>
 
