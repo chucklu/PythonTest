@@ -24,6 +24,7 @@
 	<div class="common_list_con clearfix">
 		<ul class="goods_list_th clearfix">
 			<li class="col01">商品名称</li>
+			<li class="col02">商品单位</li>
 			<li class="col03">商品价格</li>
 			<li class="col04">数量</li>
 			<li class="col05">小计</li>
@@ -31,7 +32,7 @@
 
 		{% for cart_goods in cart_goods_list %}
         <ul class="goods_list_td clearfix">
-            <li class="col01">1</li>            
+            <li class="col01"></li>            
             <li class="col02"><img src="/static/goods/{{ cart_goods.goods_img }}.jpg"></li>
             <li class="col03">{{ cart_goods.goods_name }}</li>
             <li class="col04">{{ cart_goods.goods_unit }}</li>
