@@ -7,7 +7,9 @@ from django.core.paginator import Paginator
 
 
 def getCategoriesWithLastFourGoods():
+    # 查询商品分类
     categories = GoodsCategory.objects.all()
+    # 从每个分类中获取四个商品
     for category in categories:
         category.goods_list = category.goodsinfo_set.all().order_by('-id')[:4]
     print(categories)

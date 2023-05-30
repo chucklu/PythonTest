@@ -13,35 +13,11 @@
 	<div class="header_con">
 		<div class="header">
 			<div class="welcome fl">欢迎来到天天生鲜!</div>
-			<div class="fr">
-				<!--个人信息导航-->
-				<div class="login_info fl">
-					欢迎您：<em>张 山</em>
-				</div>
-				<!--根据页面说明.txt文件中的说明完成导航栏-->
-				<div class="login_btn fl">
-					<!--登录-->
-					<span>|</span>
-					<!--注册-->
-				</div>
-				<div class="user_link fl">
-					<span>|</span>
-					<!--用户中心（user_center_info.html）-->
-					<span>|</span>
-					<!--购物车，文字“我的购物车”-->
-					<span>|</span>
-					<!--“我的订单”user_center_order.html-->
-				</div>
-			</div>
 		</div>		
 	</div>
 
 	<div class="search_bar clearfix">
 		<a href="index.html" class="logo fl"><img src="/static/images/logo.png"></a>
-		<div class="search_con fl">
-			<!--添加搜索框，应用css样式"input_text"和"fl"，显示搜索提示“搜索商品”-->
-			<!--根据图片提示添加搜索按钮，应用样式"input_btn"和"fr"-->
-		</div>
 		<div class="guest_cart fr">
 			<a href="/cart/show_cart/" class="cart_name fl">我的购物车</a>
             <div class="goods_count fl">{{ cart_goods_count }}</div>
@@ -60,18 +36,10 @@
 	<div class="navbar_con">
 		<div class="navbar">
 			<h1 class="fl">全部商品分类</h1>
-			<ul class="navlist fl">
-				<li><a href="">首页</a></li>
-				<li class="interval">|</li>
-				<li><a href="">手机生鲜</a></li>
-				<li class="interval">|</li>
-				<li><a href="">抽奖</a></li>
-			</ul>
 		</div>
 	</div>
 
 	<div class="center_con clearfix">
-		<!--完善此处超链接-->
 		<ul class="subnav fl">
             {% for cag in categories%}
             <li><a href="/goods?cag={{cag.id}}&amp;page=1" class="{{cag.cag_css}}">{{cag.cag_name}}</a></li>
@@ -129,21 +97,6 @@
 		<p>CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved</p>
 		<p>电话：010-****888    京ICP备*******8号</p>
 	</div>
-	<script type="text/javascript" src="/static/js/slideshow.js"></script>
-	<script type="text/javascript">
-		var oFruit = document.getElementById('fruit_more');
-		var oShownum = document.getElementById('show_count');
-
-		var hasorder = localStorage.getItem('order_finish');
-
-		if(hasorder)
-		{
-			oShownum.innerHTML = '2';
-		}
-
-		oFruit.onclick = function(){
-			window.location.href = 'list.html';
-		}
-	</script>
+	
 </body>
 </html>
