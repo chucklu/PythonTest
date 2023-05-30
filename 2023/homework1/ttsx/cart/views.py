@@ -57,6 +57,23 @@ def show_cart(request):
                                          'cart_goods_count': cart_goods_count,
                                          'cart_goods_money': cart_goods_money})
 
+def remove_cart(request):
+    """删除购物车商品"""
+
+    # 获得要删除的商品ID
+    goods_id = request.GET.get('id', '')
+    if goods_id:
+        # 获得上一页面地址
+        prev_url = request.META['HTTP_REFERER']
+        # 写入到 cookie 中
+        response = redirect(prev_url)
+        # 判断商品是否存在
+        goods_count = request.COOKIES.get(goods_id, '')
+        if goods_count:
+            response.delete_cookie(goods_id)
+
+    return response
+
 #25.2.10 提交订单页面功能实现
 def place_order(request):
     """提交订单页面"""
