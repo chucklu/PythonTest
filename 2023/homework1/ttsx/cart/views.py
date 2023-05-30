@@ -53,6 +53,7 @@ def show_cart(request):
         # 累计商品总价
         cart_goods_money += int(goods_num) * cart_goods.goods_price
 
+    cart_goods_money = round(cart_goods_money,2)
     return render(request, 'cart.html', {'cart_goods_list': cart_goods_list,
                                          'cart_goods_count': cart_goods_count,
                                          'cart_goods_money': cart_goods_money})
