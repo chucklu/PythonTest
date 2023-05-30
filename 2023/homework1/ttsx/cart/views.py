@@ -8,6 +8,7 @@ from datetime import datetime
 # Create your views here.
 
 #25.2.7 商品详细页面功能实现
+#本页面除了展示商品的详细信息之外, 分类信息, 当用户点击"加入购物车"按钮, 会将产品信息加入购物车.
 def add_cart(request):
     """添加商品到购物车"""
 
