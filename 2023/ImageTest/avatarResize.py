@@ -15,13 +15,34 @@ def add_white_space(image_path, padding_percentage):
     new_height = height + 2 * padding_y
     
     # Create a new blank image with the new dimensions
-    new_image = Image.new("RGB", (new_width, new_height), "white")
+    new_image = Image.new("RGB", (new_width, new_height), "#F0F0F0")
     
     # Paste the original image onto the new image with padding
     new_image.paste(image, (padding_x, padding_y))
     
     # Save the modified image
     new_image.save("avatar_with_white_space_2023_0620_001.png")
+    print("White space added to the image.")
+
+def add_white_space2(image_path, delta):
+    # Open the image using Pillow
+    image = Image.open(image_path)
+    
+    # Calculate the padding based on the delta
+    width, height = image.size
+    
+    # Calculate the new dimensions with added padding
+    new_width = int(width + delta)
+    new_height = int(height + delta)
+    
+    # Create a new blank image with the new dimensions and white background
+    new_image = Image.new("RGB", (new_width, new_height), "#F0F0F0")
+    
+    # Paste the original image onto the new image with padding
+    new_image.paste(image, (int(delta/2), int(delta/2)))
+    
+    # Save the modified image
+    new_image.save("avatar_with_white_space_2023_0620_002.png")
     print("White space added to the image.")
 
 # Specify the path to your PNG file
@@ -33,3 +54,6 @@ padding_percentage = value * 2 * 10 # 10% of the image dimensions
 
 # Call the function to add white space
 add_white_space(image_path, padding_percentage)
+
+padding = (350*math.sqrt(2)-350)/2.0
+add_white_space2(image_path, padding)
