@@ -8,18 +8,22 @@ class TreeNode:
 def preorder_traversal(root):
     """二叉树先序遍历函数 NLR"""
     result = []
-    if root is None:
-        return result
+    stack = []
     node = root
-    while(node is not None):
-        result.append(node.val)
-        if(node.left is None and node.right is None):
-            break
-        if(node.left is not None):
-            node = node.left
-        else:
-            node = node.right
 
+    while node or stack:
+        while node:
+            # Visit the current node
+            result.append(node.val)
+            # Push right child to stack
+            if node.right:
+                stack.append(node.right)
+            # Move to the left child
+            node = node.left
+
+        # If no left child, pop from stack (which is the right child)
+        if stack:
+            node = stack.pop()
     return result
 
 # 初始化二叉树
